@@ -1,0 +1,355 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+/* ---------- BODY ---------- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('techmania_image.jpeg') no-repeat center/cover;
+    color: #fff;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff; /* stays white always */
+    user-select: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ---------- NAVIGATION ---------- */
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #00bfff;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ---------- LOGIN BUTTON ---------- */
+.navigation .btnLogin-popup {
+    padding: 10px 25px;
+    background: transparent;
+    border: 2px solid #00bfff;
+    border-radius: 8px;
+    color: #00bfff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #00bfff;
+    color: #fff;
+}
+
+/* ---------- DROPDOWN ---------- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 130%;
+    left: 0;
+    background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    min-width: 170px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    padding: 8px 0;
+    z-index: 999;
+    animation: fadeIn 0.25s ease;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 6px;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(0, 191, 255, 0.15);
+    color: #00bfff;
+}
+
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+.dropdown.show .arrow {
+    transform: rotate(180deg);
+}
+
+/* ---------- LOGIN POPUP ---------- */
+.wrapper {
+    position: relative;
+    width: 550px; /* bigger form */
+    min-height: 520px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 40px rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .4s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 600px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 50px;
+}
+
+.wrapper .form-box h2 {
+    font-size: 2.4em;
+    color: #00bfff;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ---------- INPUTS ---------- */
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    border-bottom: 2px solid #00bfff;
+    margin: 35px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #ccc;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -6px;
+    color: #00bfff;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 10px;
+    font-size: 1.2em;
+    color: #00bfff;
+    line-height: 55px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+    width: 100%;
+    height: 50px;
+    background: #00bfff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #009cd8;
+}
+
+/* ---------- FORM LINKS ---------- */
+.login-register {
+    font-size: 0.95em;
+    color: #ccc;
+    text-align: center;
+    font-weight: 400;
+    margin: 25px 0 10px;
+}
+
+.login-register a {
+    color: #00bfff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-register a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- LIGHT THEME SUPPORT ---------- */
+body.light-theme {
+    background: linear-gradient(135deg, #f4f6f9, #e8edf2);
+    color: #111;
+}
+
+body.light-theme header {
+    background: rgba(255,255,255,0.8);
+    color: #111;
+}
+
+body.light-theme .logo {
+    color: #fff; /* always white */
+}
+
+body.light-theme .navigation a {
+    color: #222;
+}
+
+body.light-theme .navigation a::after {
+    background: #0077b6;
+}
+
+body.light-theme .btnLogin-popup {
+    color: #0077b6;
+    border-color: #0077b6;
+}
+
+body.light-theme .btnLogin-popup:hover {
+    background: #0077b6;
+    color: #fff;
+}
+
+body.light-theme .dropdown-menu {
+    background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+body.light-theme .dropdown-menu a {
+    color: #222;
+}
+
+body.light-theme .dropdown-menu a:hover {
+    background: rgba(0, 119, 182, 0.1);
+    color: #0077b6;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .wrapper {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .wrapper .form-box {
+        padding: 30px;
+    }
+
+    .wrapper .form-box h2 {
+        font-size: 2em;
+    }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Events</title>
+  <link rel="stylesheet" href="Tech.css">
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="Techlogo.jpeg" alt="Logo" height="150" width="150">
+    <h1>TECHMANIA</h1>
+    <h5>Dive into a world of innovation with our</h5>
+    <h5>TECHNICAL EVENTS, where coding wizards, tech</h5>
+    <h5>enthusiasts, and problem-solvers can put their skills to the test.</h5>
+
+    <nav class="navigation">
+      <a href="index.html">Home</a>
+      <a href="AboutUs.html">About us</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Events<span class="arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="Technical.html">Technical</a>
+          <a href="NonTech.html">Non-Technical</a>
+        </div>
+      </div>
+      <a href="More.html">More</a>
+      <button class="btnLogin-popup">Login</button>
+      <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch" />
+        <label for="theme-switch" class="toggle-label">
+          <span class="sun">☀️</span>
+          <span class="moon">🌙</span>
+        </label>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="event">
+      <h2>Tech Titans</h2>
+      <div id="TT">
+        <img src="TT.jpeg" alt="Tech Titans">
+        <p>"Unleash your creativity and coding skills in our hackathon! Develop innovative solutions to real-world
+          problems and compete with fellow tech enthusiasts. Showcase your skills, learn from others, and win exciting prizes!"
+          <br> Click here to Register: <a href="https://forms.gle/csLyoNd9HAfknL7S7">Tech Titans</a><br>
+          Event Heads: <b>Dhruv Temkar</b>, <b>Pratham Dubey</b>
+        </p>
+      </div>
+    </section>
+
+    <section class="event">
+      <h2>Code Debugging</h2>
+      <div id="DB">
+        <img src="Debug.jpeg" alt="Code Debugging">
+        <p>"Get ready to debug like a pro! Identify and fix errors in our challenging coding problems. Demonstrate
+          your problem-solving skills and attention to detail. Can you debug your way to victory?"
+          <br> Click here to Register: <a href="https://forms.gle/DGYRg6a7GwEeTBGj7">Code Debugging</a><br>
+          Event Heads: <b>Shahrukh Sheikh</b>, <b>Likhith Karnad</b>
+        </p>
+      </div>
+    </section>
+
+    <section class="event">
+      <h2>Code War</h2>
+      <div id="CW">
+        <img src="CW.jpeg" alt="Code War">
+        <p>"Design comes alive with code! We provide the frontend design; you bring it to life with code. Showcase your
+          web development skills and create a functional website. How quickly can you turn design into reality?"
+          <br> Click here to Register: <a href="https://forms.gle/V5DhS8vDSES4aq9U7">Code War</a><br>
+          Event Heads: <b>Shadab Siddique</b>, <b>Bilal Shaikh</b>
+        </p>
+      </div>
+    </section>
+
+    <!-- Things You Should Know Section -->
+    <section class="event info-section">
+      <h2>Things You Should Know...!!</h2>
+      <div class="info-items">
+        <div class="info-card">
+          <div class="info-icon">📅</div>
+          <h3>When..?</h3>
+          <p>August 28 & 29, 2024 | 8am–4pm</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>WHERE</h3>
+          <p>AT SFC Building Auditorium (P-406)</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🎒</div>
+          <h3>What to Bring</h3>
+          <p>Your college ID, energy to carry FREE stuff and things required according to respective events.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="#" class="scroll-to-top" id="scroll-to-top">^</a>
+
+  <footer>
+    <p>&copy; 2024 Technical Events. All rights reserved by TECHMANIA 2.0.</p>
+  </footer>
+
+  
+   <script>
+  // Dropdown toggle
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdown = toggle.closest('.dropdown');
+      dropdown.classList.toggle('show');
+
+      // Close other dropdowns
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('show');
+      });
+    });
+  });
+
+  // Close dropdown on outside click
+  window.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+    }
+  });
+
+  // Dark mode toggle
+  const themeSwitch = document.getElementById('theme-switch');
+  themeSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark-theme', themeSwitch.checked);
+  });
+</script>
+
+
+</body>
+</html>
